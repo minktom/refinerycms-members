@@ -1,0 +1,67 @@
+hu:
+  refinery:
+    plugins:
+      members:
+        title: Tagok
+    members:
+      admin:
+        groups:
+          actions:
+            create_new: 'Új csoport hozzáadása'
+            create_new_item: 'Új tag hozzáadása'
+            reorder: 'Csoportok rendezése'
+            reorder_done: 'Csoportok rendezésének befejezése'
+          records:
+            title: Csoportok
+            sorry_no_results: 'Sajnáljuk! Nics találat.'
+            no_items_yet: 'Jelenleg nincs csoport. Kattints az "Új csoport hozzáadása" linkre, hogy létrehozd az elsőt.'
+          group:
+            item_count:
+              zero: nincs tag
+              one: 1 tag
+              other: '%{count} tag'
+            view_live_html: View this member group live <br/><em>(opens in a new window)</em>
+            edit: Csoport szerkesztése
+            delete: Csoport végleges eltávolítása
+        items:
+          actions:
+            create_new: Új tag hozzáadása
+            reorder: Tagok rendezése
+            reorder_done: Tagok rendezésének befejezése
+            back_to_groups: Vissza a csoportokhoz
+          records:
+            title: Tagok
+            sorry_no_results: Sajnáljuk! Nics találat.
+            no_items_yet: 'Jelenleg nincs tag. Kattints az "Új tag hozzáadása" linkre, hogy létrehozd az elsőt.'
+          item:
+            view_live_html: View this member live <br/><em>(opens in a new window)</em>
+            edit: Tag adatinak szerkesztése
+            delete: Tag végleges eltávolítása
+      groups:
+        show:
+          other: További Csoportok
+      items:
+        show:
+          other: További Tagok
+  activerecord:
+    attributes:
+      refinery/members/group:
+        name: Név
+      refinery/members/item:
+        name: Név
+        post: Beosztás
+        avatar: Kép
+        address: Cím
+        room: Szoba
+        email: Email
+        phone: Telefon
+        fax: Fax
+        born_at: Születési idő
+        born_in: Születési hely
+        studies: Tanulmányok
+        languages: Nyelvek
+        education: Oktatás
+        research: Kutatás
+        conferences: Konferenciák
+        publications: Publikációk
+        awards: Díjak

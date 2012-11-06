@@ -1,0 +1,8 @@
+<section id='records'>
+  <h2><%= @group.name if @group %></h2>
+  <%= render 'records' %>
+</section>
+<aside id='actions'>
+  <%= render 'actions' %>
+</aside>
+<%= render '/refinery/admin/make_sortable', :tree => false if !searching? and ::Refinery::Members::Admin::ItemsController.sortable? and ::Refinery::Members::Item.count > 1 %>

@@ -1,0 +1,137 @@
+<% content_for :body_content_title do %>
+  <%= @item.name %>
+  <span><%= @item.post %></span>
+<% end %>
+
+<% content_for :body do %>
+  <%- unless @item.address.blank? %>
+    <section>
+      <h3><%= Refinery::Members::Item.human_attribute_name :address %></h3>
+      <p>
+        <%= @item.address %>
+      </p>
+    </section>
+  <%- end %>
+  <%- unless @item.room.blank? %>
+    <section>
+      <h3><%= Refinery::Members::Item.human_attribute_name :room %></h3>
+      <p>
+        <%= @item.room %>
+      </p>
+    </section>
+  <%- end %>
+  <%- unless @item.email.blank? %>
+    <section>
+      <h3><%= Refinery::Members::Item.human_attribute_name :email %></h3>
+      <p>
+        <%= mail_to @item.email, @item.email, :encode => "javascript" %>
+      </p>
+    </section>
+  <%- end %>
+  <%- unless @item.phone.blank? %>
+    <section>
+      <h3><%= Refinery::Members::Item.human_attribute_name :phone %></h3>
+      <p>
+        <%= @item.phone %>
+      </p>
+    </section>
+  <%- end %>
+  <%- unless @item.fax.blank? %>
+    <section>
+      <h3><%= Refinery::Members::Item.human_attribute_name :fax %></h3>
+      <p>
+        <%= @item.fax %>
+      </p>
+    </section>
+  <%- end %>
+  <%- unless @item.born_at.blank? %>
+    <section>
+      <h3><%= Refinery::Members::Item.human_attribute_name :born_at %></h3>
+      <p>
+        <%=l @item.born_at %>
+      </p>
+    </section>
+  <%- end %>
+  <%- unless @item.born_in.blank? %>
+    <section>
+      <h3><%= Refinery::Members::Item.human_attribute_name :born_in %></h3>
+      <p>
+        <%= @item.born_in %>
+      </p>
+    </section>
+  <%- end %>
+
+  <%- unless @item.studies.blank? %>
+    <section>
+      <h3><%= Refinery::Members::Item.human_attribute_name :studies %></h3>
+      <p>
+        <%=raw @item.studies %>
+      </p>
+    </section>
+  <%- end %>
+
+  <%- unless @item.languages.blank? %>
+    <section>
+      <h3><%= Refinery::Members::Item.human_attribute_name :languages %></h3>
+      <p>
+        <%=raw @item.languages %>
+      </p>
+    </section>
+  <%- end %>
+
+  <%- unless @item.education.blank? %>
+    <section>
+      <h3><%= Refinery::Members::Item.human_attribute_name :education %></h3>
+      <p>
+        <%=raw @item.education %>
+      </p>
+    </section>
+  <%- end %>
+
+  <%- unless @item.research.blank? %>
+    <section>
+      <h3><%= Refinery::Members::Item.human_attribute_name :research %></h3>
+      <p>
+        <%=raw @item.research %>
+      </p>
+    </section>
+  <%- end %>
+
+  <%- unless @item.conferences.blank? %>
+    <section>
+      <h3><%= Refinery::Members::Item.human_attribute_name :conferences %></h3>
+      <p>
+        <%=raw @item.conferences %>
+      </p>
+    </section>
+  <%- end %>
+
+  <%- unless @item.publications.blank? %>
+    <section>
+      <h3><%= Refinery::Members::Item.human_attribute_name :publications %></h3>
+      <p>
+        <%=raw @item.publications %>
+      </p>
+    </section>
+  <%- end %>
+
+  <%- unless @item.awards.blank? %>
+    <section>
+      <h3><%= Refinery::Members::Item.human_attribute_name :awards %></h3>
+      <p>
+        <%=raw @item.awards %>
+      </p>
+    </section>
+  <%- end %>
+
+<% end %>
+
+<% content_for :side_body do %>
+  <aside>
+    <p>
+      <%= image_fu @item.avatar, nil %>
+    </p>
+  </aside>
+<% end %>
+
+<%= render '/refinery/content_page' %>

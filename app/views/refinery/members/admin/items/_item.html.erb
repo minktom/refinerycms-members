@@ -1,0 +1,28 @@
+<li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(item) -%>">
+  <span class='title'>
+    <%= item.name %>
+
+  </span>
+  <span class="preview">
+    <% if defined?(::Refinery::I18n) and ::Refinery::I18n.frontend_locales.many? and
+          (locales = item.translations.collect{|t| t.locale}).present? %>
+      <% locales.each do |locale| %>
+        <%= refinery_icon_tag "flags/#{locale}.png", :size => '16x11' %>
+      <% end %>
+    <% end %>
+  </span>
+  <span class='actions'>
+    
+    <%= link_to refinery_icon_tag("application_go.png"), refinery.members_group_item_path(item.group, item),
+        :title => t('.view_live_html'),
+        :target => "_blank" %>
+    
+    <%= link_to refinery_icon_tag("application_edit.png"), refinery.edit_members_admin_item_path(item),
+         :title => t('.edit') %>
+    <%= link_to refinery_icon_tag("delete.png"), refinery.members_admin_item_path(item),
+        :class => "cancel confirm-delete",
+        :title => t('.delete'),
+        :confirm => t('message', :scope => 'refinery.admin.delete', :title => item.name),
+        :method => :delete %>
+  </span>
+</li>
