@@ -12,6 +12,7 @@ class TranslateMembers < ActiveRecord::Migration
     unless defined?(::Refinery::Members::Item::Translation) && ::Refinery::Members::Item::Translation.table_exists?
       ::Refinery::Members::Item.create_translation_table!({
         :name => :string,
+        :slug => :string,
         :post => :string,
         :address => :string,
         :room => :string,

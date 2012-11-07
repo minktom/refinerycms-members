@@ -6,7 +6,7 @@ module Refinery
       extend FriendlyId
       friendly_id :name, :use => [:slugged]
 
-      translates :name, :post, :address, :room, :studies, :languages, :education, :research, :conferences, :publications, :awards
+      translates :name, :slug, :post, :address, :room, :studies, :languages, :education, :research, :conferences, :publications, :awards
 
       class Translation
         attr_accessible :locale
