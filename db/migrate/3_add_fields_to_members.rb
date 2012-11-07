@@ -1,6 +1,7 @@
 class AddFieldsToMembers < ActiveRecord::Migration
 
   def up
+    add_column :refinery_members, :post, :string
     add_column :refinery_members, :studies, :text
     add_column :refinery_members, :languages, :text
     add_column :refinery_members, :education, :text
@@ -11,6 +12,7 @@ class AddFieldsToMembers < ActiveRecord::Migration
   end
 
   def down
+    remove_column :refinery_members, :post
     remove_column :refinery_members, :studies
     remove_column :refinery_members, :languages
     remove_column :refinery_members, :education
