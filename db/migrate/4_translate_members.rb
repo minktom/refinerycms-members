@@ -4,7 +4,8 @@ class TranslateMembers < ActiveRecord::Migration
     ::Refinery::Members::Group.reset_column_information
     unless defined?(::Refinery::Members::Group::Translation) && ::Refinery::Members::Group::Translation.table_exists?
       ::Refinery::Members::Group.create_translation_table!({
-        :name => :string
+        :name => :string,
+        :slug => :string
       }, {:migrate_data => true})
     end
     
