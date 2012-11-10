@@ -25,7 +25,7 @@ module Refinery
         private
 
         def find_group
-          @group = Group.find(params[:group_id]) if params[:group_id]
+          @group = Group.find_by_slug(params[:group_id]) if params[:group_id]
         end
 
       end
