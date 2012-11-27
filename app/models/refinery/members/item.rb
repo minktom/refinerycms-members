@@ -13,6 +13,8 @@ module Refinery
       end
 
       belongs_to :group
+      belongs_to :user, :class_name => '::Refinery::User'
+      belongs_to :avatar, :class_name => '::Refinery::Image'
 
       attr_accessible :name, :post, :position, :avatar_id, :group_id,
         :address, :room, :email, :phone, :fax, :born_at, :born_in,
@@ -25,8 +27,6 @@ module Refinery
       validates :group_id, :presence => true
 
       default_scope order('position ASC')
-
-      belongs_to :avatar, :class_name => '::Refinery::Image'
 
       class << self
 

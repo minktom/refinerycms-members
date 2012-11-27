@@ -3,8 +3,8 @@ Refinery::Core::Engine.routes.append do
   # Frontend routes
   namespace :members do
     root :to => "groups#index"
-    resources :groups, :path=> '', :only => [:index, :show] do
-      resources :items, :path=> '', :only => :show
+    resources :groups, :path => '', :only => [:index, :show] do
+      resources :items, :path => '', :only => :show
     end
   end
 
@@ -23,6 +23,8 @@ Refinery::Core::Engine.routes.append do
             post :update_positions
           end
         end
+        resource :profile
+        #match 'profile' => 'profiles#show'
       end
     end
   end

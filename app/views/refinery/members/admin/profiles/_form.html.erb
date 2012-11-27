@@ -1,0 +1,89 @@
+<%= form_for [refinery, :members_admin, @item], :url => members_admin_profile_path do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @item,
+              :include_object_name => true %>
+
+  <%= render :partial => "refinery/portfolio/admin/shared/locale_picker",
+             :locals => {
+               :current_locale => Thread.current[:globalize_locale]
+             } if defined?(::Refinery::I18n) %>
+
+  <div class='field'>
+    <%= f.label :name -%>
+    <%= f.text_field :name, :class => 'larger widest'  -%>
+
+  </div>
+
+  <div class='field'>
+    <%= f.label :post -%>
+    <%= f.text_field :post  -%>
+
+  </div>
+
+  <div class='field'>
+    <%= f.label :avatar -%>
+    <%= render '/refinery/admin/image_picker',
+               :f => f,
+               :field => :avatar_id,
+               :image => @item.avatar,
+               :toggle_image_display => false %>
+
+  </div>
+    
+  <div class='field'>
+    <%= f.label :address -%>
+    <%= f.text_field :address  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :room -%>
+    <%= f.text_field :room  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :email -%>
+    <%= f.text_field :email  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :phone -%>
+    <%= f.text_field :phone  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :fax -%>
+    <%= f.text_field :fax  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :born_at -%>
+    <%= f.datetime_select :born_at, :start_year => 1900  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :born_in -%>
+    <%= f.text_field :born_in  -%>
+
+  </div>
+
+  <div class='field'>
+    <%= f.label :group_id -%>
+    <%= f.collection_select(:group_id, Refinery::Members::Group.all, :id, :name) -%>
+  </div>
+
+  <%= render :partial => '/refinery/admin/tabbed_fields',
+           :locals => { :f => f,
+                        :tabbed_fields => [:studies, :languages, :education, :research, :conferences, :publications, :awards] } %>
+
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.members.admin.items.item'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @item.name),
+             :delete_url => refinery.members_admin_profile_path %>
+<% end -%>
