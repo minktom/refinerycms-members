@@ -16,7 +16,7 @@ module Refinery
       belongs_to :user, :class_name => '::Refinery::User'
       belongs_to :avatar, :class_name => '::Refinery::Image'
 
-      attr_accessible :name, :post, :position, :avatar_id, :group_id,
+      attr_accessible :name, :post, :position, :avatar_id, :group_id, :user_id,
         :address, :room, :email, :phone, :fax, :born_at, :born_in,
         :studies, :languages, :education, :research, :conferences, :publications, :awards
 
@@ -55,7 +55,6 @@ module Refinery
           # A join implies readonly which we don't really want.
           joins(:translations).where(globalized_conditions).where(conditions).readonly(false)
         end
-
 
       end
 
