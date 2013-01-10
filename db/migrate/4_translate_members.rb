@@ -19,6 +19,7 @@ class TranslateMembers < ActiveRecord::Migration
         :room => :string,
         :studies => :text,
         :languages => :text,
+        :actual_education => :text,
         :education => :text,
         :research => :text,
         :conferences => :text,

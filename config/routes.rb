@@ -18,14 +18,17 @@ Refinery::Core::Engine.routes.append do
           end
           resources :items, :only => :index
         end
-        resources :items, :except => [:index, :show] do
+        resources :items, :except => [:show] do
           collection do
             post :update_positions
           end
         end
-        resource :profile
-        #match 'profile' => 'profiles#show'
       end
+    end
+  end
+  namespace :profile, :path => '' do
+    namespace :admin, :path => 'refinery' do
+      resource :profile
     end
   end
 

@@ -79,6 +79,15 @@
     </section>
   <%- end %>
 
+  <%- unless @item.actual_education.blank? %>
+    <section>
+      <h3><%= Refinery::Members::Item.human_attribute_name :actual_education %></h3>
+      <p>
+        <%=raw @item.actual_education %>
+      </p>
+    </section>
+  <%- end %>
+
   <%- unless @item.education.blank? %>
     <section>
       <h3><%= Refinery::Members::Item.human_attribute_name :education %></h3>

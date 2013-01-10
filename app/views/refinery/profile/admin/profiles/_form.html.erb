@@ -1,9 +1,9 @@
-<%= form_for [refinery, :members_admin, @item], :url => refinery.members_admin_profile_path do |f| -%>
+<%= form_for [refinery, :profile_admin, @item], :url => refinery.profile_admin_profile_path do |f| -%>
   <%= render '/refinery/admin/error_messages',
               :object => @item,
               :include_object_name => true %>
 
-  <%= render :partial => "refinery/portfolio/admin/shared/locale_picker",
+  <%= render :partial => "refinery/admin/pages/locale_picker",
              :locals => {
                :current_locale => Thread.current[:globalize_locale]
              } if defined?(::Refinery::I18n) %>
@@ -79,11 +79,11 @@
 
   <%= render :partial => '/refinery/admin/tabbed_fields',
            :locals => { :f => f,
-                        :tabbed_fields => [:studies, :languages, :education, :research, :conferences, :publications, :awards] } %>
+                        :tabbed_fields => [:studies, :languages, :actual_education, :education, :research, :conferences, :publications, :awards] } %>
 
   <%= render '/refinery/admin/form_actions', :f => f,
              :continue_editing => false,
              :delete_title => t('delete', :scope => 'refinery.members.admin.items.item'),
              :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @item.name),
-             :delete_url => refinery.members_admin_profile_path %>
+             :delete_url => refinery.profile_admin_profile_path %>
 <% end -%>

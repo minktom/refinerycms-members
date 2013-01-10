@@ -4,6 +4,7 @@ class AddFieldsToMembers < ActiveRecord::Migration
     add_column :refinery_members, :post, :string
     add_column :refinery_members, :studies, :text
     add_column :refinery_members, :languages, :text
+    add_column :refinery_members, :actual_education, :text
     add_column :refinery_members, :education, :text
     add_column :refinery_members, :research, :text
     add_column :refinery_members, :conferences, :text
@@ -15,6 +16,7 @@ class AddFieldsToMembers < ActiveRecord::Migration
     remove_column :refinery_members, :post
     remove_column :refinery_members, :studies
     remove_column :refinery_members, :languages
+    remove_column :refinery_members, :actual_education
     remove_column :refinery_members, :education
     remove_column :refinery_members, :research
     remove_column :refinery_members, :conferences

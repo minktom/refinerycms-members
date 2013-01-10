@@ -3,6 +3,8 @@ hu:
     plugins:
       members:
         title: Tagok
+      profile:
+        title: Profil
     members:
       admin:
         groups:

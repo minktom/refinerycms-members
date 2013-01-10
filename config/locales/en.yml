@@ -3,6 +3,8 @@ en:
     plugins:
       members:
         title: Members
+      profile:
+        title: Profile
     members:
       admin:
         groups:
@@ -49,7 +51,7 @@ en:
         name: Name
       refinery/members/item:
         name: Name
-        post: beosztás
+        post: post
         avatar: Avatar
         address: Address
         room: Room

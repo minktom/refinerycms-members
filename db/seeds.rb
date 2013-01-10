@@ -7,6 +7,10 @@
         user.plugins.create(:name => 'refinerycms-members',
                             :position => (user.plugins.maximum(:position) || -1) +1)
       end
+      if user.plugins.where(:name => 'refinerycms-profile').blank?
+        user.plugins.create(:name => 'refinerycms-profile',
+                            :position => (user.plugins.maximum(:position) || -1) +1)
+      end
     end
   end
 

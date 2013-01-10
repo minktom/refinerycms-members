@@ -15,13 +15,19 @@ module Refinery
             :class_name => :'refinery/members/group',
             :title => 'name'
           }
-          
         end
       end
 
       config.after_initialize do
         Refinery.register_extension(Refinery::Members)
       end
+
+      config.to_prepare do
+        ::Refinery::User.class_eval do
+          has_one :profile, :class_name => 'Refinery::Members::Item', :dependent => :destroy
+        end
+      end
+
     end
   end
 end
